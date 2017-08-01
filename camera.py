@@ -11,7 +11,6 @@ down = False
 center = True
 
 
-
 while(1):
     ret, img = cap.read()
     height, width, _ = img.shape
@@ -63,23 +62,23 @@ while(1):
         cv2.circle(img,centerMass,7,[100,0,255],2)
         font = cv2.FONT_HERSHEY_SIMPLEX
         cv2.putText(img,'Center',tuple(centerMass),font,2,(0,0,0),2)
-        if(cy < (height/2)-50 and center == True ):
+        if(cy < (height/2)-70 and center == True ):
             center = False
             up = True
             print('up')
             PressKey(UP)
             ReleaseKey(UP)
-        if( cy > (height/2)-50 and cy < (height/2)+50 and (up == True or down == True)):
+        if( cy > (height/2)-70 and cy < (height/2)+70 and (up == True or down == True)):
             center = True
             up = False
-        if(cy > (height/2)+50 and center == True):
+        if(cy > (height/2)+70 and center == True):
             center = False
             down = True
             print('down')
             PressKey(DOWN)
             ReleaseKey(DOWN)
-    cv2.line(img,(0,(height/2)-50),(width,(height/2)-50),(255,255,255),5)
-    cv2.line(img,(0,(height/2)+50),(width,(height/2)+50),(255,255,255),5)
+    cv2.line(img,(0,(height/2)-70),(width,(height/2)-70),(255,255,255),5)
+    cv2.line(img,(0,(height/2)+70),(width,(height/2)+70),(255,255,255),5)
     cv2.imshow('frame',img)
     k = cv2.waitKey(10) & 0xFF
     if k == 27:
